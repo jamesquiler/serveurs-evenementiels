@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ligue Professionnelle des Serveurs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #ffffff, #f4f0ff);
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    a, h1, h2, h3, h4, h5, h6, p {
+      color: #333;
+    }
+    nav {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    nav a {
+      color: #5c247c;
+      text-decoration: none;
+      padding: 1rem;
+      transition: color 0.3s;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #b2008a;
+    }
+    header {
+      background-image: url(PHOTO/photo8.jpg);
+      background: url('img/header-bg.jpg') center/cover no-repeat;
+      padding: 6rem 1rem;
+      text-align: center;
+      background-color: rgba(92, 36, 124, 0.7);
+      background-blend-mode: overlay;
+      color: white;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      color: #eb781bff;
+    }
+    header p {
+      font-size: 1.25rem;
+      color: #ffffff;
+    }
+    section {
+      padding: 4rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 600;
+      color: #5c247c;
+    }
+    .home-content {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .home-content .feature {
+      margin-bottom: 2rem;
+      border: 2px solid #f0c0e0;
+      border-radius: 20px;
+      padding: 2rem;
+      background: white;
+      box-shadow: 0 0 20px rgba(255, 102, 204, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .home-content .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 102, 204, 0.5);
+    }
+    .home-content .feature h3 {
+      color: #c8008f;
+    }
+    .home-content img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 12px rgba(243, 246, 247, 0.05);
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(92, 36, 124, 0.3);
+    }
+    .profile-card {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      flex: 1 1 250px;
+      max-width: 100%;
+    }
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    .btn-custom {
+      background: linear-gradient(135deg, #c8008f, #5c247c);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: background 0.3s ease;
+    }
+    .btn-custom:hover {
+      background: linear-gradient(135deg, #5c247c, #c8008f);
+    }
+    .whatsapp-icon {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 1000;
+    }
+    .whatsapp-icon img {
+      width: 60px;
+    }
+    footer {
+      background-color: #f8f0ff;
+      color: #5c247c;
+      padding: 1rem;
+      text-align: center;
+    }
+    #welcomePopup {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(92,36,124,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .popup-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      color: #5c247c;
+      box-shadow: 0 0 20px rgba(92,36,124,0.2);
+      max-width: 90%;
+      width: 400px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.75rem;
+        text-align: center;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-custom {
+        width: 100%;
+        font-size: 1rem;
+      }
+
+      .popup-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Popup Bienvenue -->
+  <div id="welcomePopup">
+    <div class="popup-content">
+      <h2>Bienvenue à la Ligue Professionnelle des Serveurs<br />Sublimer vos événements, servir avec élégance.</h2>
+      <button class="btn btn-primary mt-3" onclick="closePopup()">Entrer sur le site</button>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="d-flex flex-wrap justify-content-center">
+    <a href="#home">Accueil</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#fondateur">Fondateur</a>
+    <a href="#equipe">Équipe</a>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <h1>LIGUE PROFESSIONNELLE DES SERVEURS</h1>
+    <p class="lead mt-3">Bienvenue sur le site officiel de la <strong>Ligue Professionnelle des Serveurs</strong>, une équipe d’élite au service de vos événements.</p>
+    <p class="mt-4">Nous sommes des professionnels passionnés, spécialisés dans la <strong>restauration événementielle</strong>, le <strong>service de table</strong>, l’<strong>accueil des invités</strong> et la <strong>décoration de prestige</strong>.</p>
+    <p class="mt-3">Que ce soit pour un mariage élégant, une réception privée, un anniversaire raffiné ou un événement d’entreprise, notre équipe se distingue par son sens du détail, sa discrétion et son professionnalisme irréprochable.</p>
+    <p class="mt-3">Laissez-nous transformer vos moments importants en souvenirs inoubliables, grâce à un service à la hauteur de vos attentes. Avec la Ligue Professionnelle des Serveurs, <strong>l'excellence est notre engagement</strong>.</p>
+    <p class="mt-4 fw-bold text-white bg-dark p-2 rounded d-inline-block">🎯 Notre mission : Sublimer vos événements, servir avec élégance.</p>
+  </header>
+
+  <!-- Réalisations -->
+  <section id="realisations">
+    <h2>Nos Réalisations</h2>
+    <div class="gallery">
+      <img src="PHOTO/PHOTON1.jpg" alt="Réalisation 1" />
+      <img src="PHOTO/photo2.JPG" alt="Réalisation 2" />
+      <img src="PHOTO/photo3.JPG" alt="Réalisation 3" />
+      <img src="PHOTO/photo4.JPG" alt="Réalisation 4" />
+      <img src="PHOTO/photo5.JPG" alt="Réalisation 5" />
+      <img src="PHOTO/photo6.JPG" alt="Réalisation 6" />
+    </div>
+  </section>
+
+  <!-- Fondateur -->
+  <section id="fondateur">
+    <h2>À propos du Fondateur</h2>
+    <div class="d-flex justify-content-center flex-wrap">
+      <div class="profile-card mx-2">
+        <img src="Colabo/IMG-20250717-WA0017(1).jpg" alt="Fondateur" />
+        <h4>Mr KOTY Mathieu</h4>
+        <p>Fondateur passionné avec plus de 10 ans d’expérience dans l’organisation d’événements et la restauration professionnelle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Équipe -->
+  <section id="equipe">
+    <h2>Notre Équipe</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+      <div class="profile-card">
+        <img src="Colabo/IMG-20250716-WA0170.jpg" alt="Collaborateur 1" />
+        <h5>Mr TOHOME A. Ezéchiel</h5>
+        <p>Vice-Président<br />Chef de Service</p>
+      </div>
+      <div class="profile-card">
+        <img src="Colabo/IMG-20250717-WA0063(1).jpg" alt="Collaborateur 2" />
+        <h5>Mr GOUTIKPE M.Ezéchiel</h5>
+        <p>Secrétaire Général<br />Responsable Décoration</p>
+      </div>
+      <div class="profile-card">
+        <img src="Colabo/IMG-20250717-WA0058.jpg" alt="Collaborateur 3" />
+        <h5>Mr DEGUENON Nelson</h5>
+        <p>Secrétaire Général Adjoint<br />Coordinateur Événementiel</p>
+      </div>
+      <div class="profile-card">
+        <img src="Colabo/IMG-20250717-WA0060.jpg" alt="Collaborateur 4" />
+        <h5>Mr CAKPO Jules</h5>
+        <p>Chef Service Communication</p>
+      </div>
+      <div class="profile-card">
+        <img src="WhatsApp/IMG-20250717-WA0145[1].JPG" alt="Collaborateur 5" />
+        <h5>Mme FANOU Arielle</h5>
+        <p>Trésorière Générale</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="text-center py-5">
+    <div class="mb-4">
+      <a href="service.html" class="btn btn-custom">Voir+</a>
+    </div>
+    <h2>Contactez-Nous</h2>
+    <p>Pour réserver ou en savoir plus, écrivez-nous directement via WhatsApp.</p>
+    <a href="https://wa.me/22967919544" target="_blank" class="btn btn-success btn-lg mt-3">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" style="vertical-align: middle; margin-right: 8px" />
+      Contact WhatsApp
+    </a>
+  </section>
+
+  <!-- WhatsApp flottant -->
+  <a href="https://wa.me/22967919544" target="_blank" class="whatsapp-icon" aria-label="Contact WhatsApp">
+    <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WhatsApp" />
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ligue Professionnelle des Serveurs. Tous droits réservés. <br />Developed by Nolcop Coding</p>
+  </footer>
+
+  <script>
+    function closePopup() {
+      document.getElementById("welcomePopup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
