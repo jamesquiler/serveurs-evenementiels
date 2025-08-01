@@ -104,6 +104,12 @@
         z-index: 9999;
         animation: fadeIn 0.3s ease-in-out;
       }
+      h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 600;
+      color: #5c247c;
+    }
 
       #lightbox img {
         max-width: 90%;
@@ -133,9 +139,54 @@
           opacity: 1;
         }
       }
+         nav {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav a {
+      color: #5c247c;
+      text-decoration: none;
+      padding: 1rem;
+      transition: color 0.3s;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #b2008a;
+       }
+        
+    .home-content img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 12px rgba(243, 246, 247, 0.05);
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(7, 7, 7, 0.3);
+    }
     </style>
   </head>
   <body>
+     <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="service.html">Réalisations</a>
+      <a href="forma.html">Formation</a>
+    </nav>
     <!-- Header -->
     <header>
       <h1>Nos Services Professionnels</h1>
@@ -145,6 +196,57 @@
       </p>
     </header>
 
+     <!-- Réalisations -->
+    <h2>Nos Réalisations</h2>
+    <section class="section-bg">
+      <h2 class="section-title"></h2>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <img
+              src="Projet/IMG-20250731-WA0273.jpg"
+              alt="Serveur en action"
+              class="img-fluid gallery"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="PHOTO/photo2.JPG"
+              alt="Service événementiel"
+              class="img-fluid gallery"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="PHOTO/photo3.JPG"
+              alt="Décoration de salle"
+              class="img-fluid gallery"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="PHOTO/photo4.JPG"
+              alt="Cheval décoratif"
+              class="img-fluid gallery"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="PHOTO/photo5.JPG"
+              alt="Cheval décoratif"
+              class="img-fluid gallery"
+            />
+          </div>
+          <div class="col-md-4">
+            <img
+              src="PHOTO/photo6.JPG"
+              alt="Cheval décoratif"
+              class="img-fluid gallery"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Section: Photos sur le terrain -->
     <section class="section-bg">
       <h2 class="section-title">Sur le Terrain</h2>
@@ -256,29 +358,11 @@
           <div class="col-md-4">
             <div class="video-box">
               <iframe
-                src=""
+                src="/video/202508011545 (1).mp4"
                 allowfullscreen
               ></iframe>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="video-box">
-              <iframe
-                src=""
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="video-box">
-              <iframe
-                src=""
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Bouton retour -->

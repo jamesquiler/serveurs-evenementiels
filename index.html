@@ -18,6 +18,9 @@
     nav {
       background-color: #fff;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     nav a {
       color: #5c247c;
@@ -52,12 +55,7 @@
       max-width: 1100px;
       margin: auto;
     }
-    h2 {
-      text-align: center;
-      margin-bottom: 3rem;
-      font-weight: 600;
-      color: #5c247c;
-    }
+    
     .home-content {
       margin-top: 3rem;
       text-align: center;
@@ -77,29 +75,7 @@
     }
     .home-content .feature h3 {
       color: #c8008f;
-    }
-    .home-content img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin-top: 1rem;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 12px rgba(243, 246, 247, 0.05);
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 18px rgba(92, 36, 124, 0.3);
-    }
+ }
     .profile-card {
       background-color: #fff;
       padding: 2rem;
@@ -115,6 +91,10 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
+    }
+    .btn-custom-container{
+      margin-bottom: 50px;
+      width: 100%;
     }
     .btn-custom {
       background: linear-gradient(135deg, #c8008f, #5c247c);
@@ -190,23 +170,45 @@
       .popup-content {
         padding: 1.5rem;
       }
+    } 
+        h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 600;
+      color: #5c247c;
     }
+      #welcomePopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
   </style>
 </head>
 <body>
 
-  <!-- Popup Bienvenue -->
-  <div id="welcomePopup">
-    <div class="popup-content">
-      <h2>Bienvenue à l'Union des Serveurs professionnels évènementiels COTONOU/PORTO-NOVO<br />Sublimer vos événements, servir avec élégance.</h2>
-      <button class="btn btn-primary mt-3" onclick="closePopup()">Entrer sur le site</button>
-    </div>
+ <!-- Popup Bienvenue -->
+<div id="welcomePopup" style="display: none;">
+  <div class="popup-content text-center p-4 bg-white rounded shadow" style="max-width: 600px; margin: auto;">
+    <h2 class="mb-3">
+      Bienvenue à l'Union des Serveurs professionnels évènementiels COTONOU/PORTO-NOVO<br />
+      <small class="text-muted">Sublimer vos événements, servir avec élégance.</small>
+    </h2>
+    <button class="btn btn-primary mt-3" onclick="closePopup()">Entrer sur le site</button>
   </div>
+</div>
 
   <!-- Navigation -->
-  <nav class="d-flex flex-wrap justify-content-center">
+  <nav class="nav">
     <a href="#home">Accueil</a>
-    <a href="#realisations">Réalisations</a>
+    <a href="service.html">Réalisations</a>
+     <a href="forma.html">Formation</a>
     <a href="#fondateur">Fondateur</a>
     <a href="#equipe">Équipe</a>
   </nav>
@@ -221,18 +223,6 @@
     <p class="mt-4 fw-bold text-white bg-dark p-2 rounded d-inline-block">🎯 Notre mission : Sublimer vos événements, servir avec élégance.</p>
   </header>
 
-  <!-- Réalisations -->
-  <section id="realisations">
-    <h2>Nos Réalisations</h2>
-    <div class="gallery">
-      <img src="PHOTO/PHOTON1.jpg" alt="Réalisation 1" />
-      <img src="PHOTO/photo2.JPG" alt="Réalisation 2" />
-      <img src="PHOTO/photo3.JPG" alt="Réalisation 3" />
-      <img src="PHOTO/photo4.JPG" alt="Réalisation 4" />
-      <img src="PHOTO/photo5.JPG" alt="Réalisation 5" />
-      <img src="PHOTO/photo6.JPG" alt="Réalisation 6" />
-    </div>
-  </section>
 
   <!-- Fondateur -->
   <section id="fondateur">
@@ -275,13 +265,28 @@
         <h5>Mme FANOU Arielle</h5>
         <p>Trésorière Générale</p>
       </div>
+            <div class="profile-card">
+        <img src="Projet/34v.JPG" alt="Collaborateur 5" />
+        <h5>Mr DOSSOU Gildas P. AMOUR</h5>
+        <p>Organisateur Général</p>
+      </div>
+            <div class="profile-card">
+        <img src="Projet/IMG-20250727-WA0089.jpg" alt="Collaborateur 5" />
+        <h5>Mr KIKI M. Jodel</h5>
+        <p>Developpeur Informatique</p>
+      </div>
+            <div class="profile-card">
+        <img src="Projet/c0.JPG" alt="Collaborateur 5" />
+        <h5>Mme METOWASSE Sandrine</h5>
+        <p>Organisatrice Général Adjoint</p>
+      </div>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="text-center py-5">
-    <div class="mb-4">
-      <a href="service.html" class="btn btn-custom">Voir+</a>
+    <div class="btn-custom-container">
+      <a href="service.html" class="btn-custom">Voir+</a>
     </div>
     <h2>Contactez-Nous</h2>
     <p>Pour réserver ou en savoir plus, écrivez-nous directement via WhatsApp.</p>
@@ -304,9 +309,17 @@
   </footer>
 
   <script>
-    function closePopup() {
-      document.getElementById("welcomePopup").style.display = "none";
+     function closePopup() {
+    document.getElementById("welcomePopup").style.display = "none";
+    localStorage.setItem("popupShown", "true");
+  }
+
+  window.addEventListener("load", () => {
+    const alreadyShown = localStorage.getItem("popupShown");
+    if (!alreadyShown) {
+      document.getElementById("welcomePopup").style.display = "flex";
     }
+  });
   </script>
 </body>
 </html>
